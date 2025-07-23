@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>La_yourte_de_Yo</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="app.js" defer></script>
+</head>
+<body>
+    <header>
+        <img src="./images/vue_ensemble.jpg" alt="Vue d'ensemble" class="hero-image">
+        <h1 class="hero-text">Défilez vers le bas <span class="down-arrow">&#x2B07;</span> </h1>
+    </header>
+
+    <main>
+
+        <section class="description">
+            <h2>Description</h2>
+            <p>
+                Location yourte Olargues 34390 1 jours un week-end ou une semaine jolie cadre rivière rando
+            </p>
+            <p><strong>Prix : ___€ / nuit</strong></p>
+        </section>
+        <section class="gallery">
+            <img src="./images/acces.jpg" alt="Rampe d'accès" class="gallery-image">
+            <img src="images/douche.jpg" alt="Douche séparée" class="gallery-image">
+            <img src="images/toilettes.jpg" alt="Toilettes séparées" class="gallery-image">
+            <img src="images/terrasse.jpg" alt="Terrasse" class="gallery-image">
+            <img src="images/terrasse2.jpg" alt="Terrasse" class="gallery-image">
+            <img src="images/POV1.jpg" alt="Point de vue" class="gallery-image">
+            <img src="images/interieur2.jpg" alt="Intérieur de la yourte" class="gallery-image">
+            <img src="images/interieur3.jpg" alt="Intérieur de la yourte" class="gallery-image">
+        </section>
+        <div id="lightbox" class="lightbox">
+            <img id="lightbox-img" src="" alt="">
+            <p id="lightbox-caption"></p>
+        </div>
+
+        <section class="contact">
+            <h2>Réserver / Nous Contacter</h2>
+            <form action="https://formsubmit.co/lencioninils@gmail.com" method="POST">
+                <label for="name">Nom :</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="email">Email :</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="dates">Date de début de séjour :</label>
+                <input type="text" id="dates" name="dates" placeholder="JJ/MM/AAAA" required>
+                <label for="dates">Date de fin de séjour :</label>
+                <input type="text" id="dates" name="dates" placeholder="JJ/MM/AAAA" required>
+                <label for="message">Remarques ou questions :</label>
+                <input type="text" id="message" name="message" placeholder="Ecrivez ici (facultatif)">
+                <button type="submit">Envoyer</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>La_yourte_de_Yo</p>
+    </footer>
+
+</body>
+</html>
