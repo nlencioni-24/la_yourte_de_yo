@@ -1,17 +1,50 @@
+/* ===========================
+   VARIABLES
+=========================== */
+:root {
+    --primary: #ff5a5f;
+    --primary-dark: #e04a4f;
+    --bg-dark: #222;
+    --text-dark: #333;
+    --text-light: #fff;
+    --shadow: rgba(0,0,0,0.1);
+}
+
+/* ===========================
+   GLOBAL
+=========================== */
+.main-content {
+    max-width: 1800px;
+    padding: 0 20px;
+}
+
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
+    color: var(--text-dark);
 }
 
+h1, h2, h3 {
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+    color: var(--primary);
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* ===========================
+   HEADER & NAV
+=========================== */
 header {
     background-color: #f8f8f8;
     padding: 10px 20px;
     text-align: center;
-}
-
-h1 {
-    margin: 0;
 }
 
 nav {
@@ -20,17 +53,180 @@ nav {
 
 nav a {
     margin: 0 10px;
-    text-decoration: none;
-    color: #333;
+    color: var(--text-dark);
 }
 
-main {
+/* ===========================
+   HERO
+=========================== */
+.hero {
+    position: relative;
+    width: 100%;
+    height: 400px;
+    overflow: hidden;
+}
+
+.hero-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(90%);
+}
+
+.hero-text {
+    position: absolute;
+    top: 70%;
+    left: 75%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: var(--text-light);
+    text-shadow: 0 2px 5px rgba(0,0,0,0.7);
+}
+
+.hero-text h1 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+}
+
+.hero-text p {
+    font-size: 1.2em;
+}
+
+/* ===========================
+   GALLERY
+=========================== */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 15px;
     padding: 20px;
 }
 
+.gallery-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px var(--shadow);
+    transition: transform 0.3s;
+}
+
+.gallery-image:hover {
+    transform: scale(1.03);
+}
+
+/* ===========================
+   LIGHTBOX
+=========================== */
+.lightbox {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.8);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.lightbox-content {
+    text-align: center;
+    color: var(--text-light);
+}
+
+#lightbox-img {
+    max-width: 90%;
+    max-height: 80%;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.5);
+}
+
+#lightbox-caption {
+    margin-top: 15px;
+    font-size: 2em;
+    font-weight: 500;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 8px 16px;
+    border-radius: 6px;
+    display: inline-block;
+    max-width: 80%;
+    position: relative;
+    left: 50px;
+}
+
+/* ===========================
+   CONTACT FORM
+=========================== */
+.contact {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 30px;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px var(--shadow);
+}
+
+.contact h2 {
+    text-align: center;
+    margin-bottom: 25px;
+    font-size: 1.8em;
+}
+
+.contact label {
+    display: block;
+    margin: 15px 0 5px;
+    font-weight: 600;
+    color: #555;
+}
+
+.contact input,
+.contact textarea {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1em;
+    background: #f9f9f9;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.contact input:focus,
+.contact textarea:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 6px rgba(255,90,95,0.3);
+    outline: none;
+    background: #fff;
+}
+
+.contact textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+.contact button {
+    display: block;
+    width: 100%;
+    padding: 14px;
+    margin-top: 20px;
+    background: var(--primary);
+    color: var(--text-light);
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.contact button:hover {
+    background: var(--primary-dark);
+}
+
+/* ===========================
+   FOOTER
+=========================== */
 .site-footer {
-    background: #222;
-    color: #fff;
+    background: var(--bg-dark);
+    color: var(--text-light);
     padding: 40px 20px;
     margin-top: 50px;
 }
@@ -50,17 +246,8 @@ main {
 }
 
 .site-footer h3 {
-    color: #ff5a5f;
+    color: var(--primary);
     margin-bottom: 15px;
-}
-
-.site-footer a {
-    color: #ff5a5f;
-    text-decoration: none;
-}
-
-.site-footer a:hover {
-    text-decoration: underline;
 }
 
 .footer-copy {
@@ -68,170 +255,4 @@ main {
     margin-top: 30px;
     font-size: 0.9em;
     color: #aaa;
-}
-
-.gallery {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 15px;
-    padding: 20px;
-}
-
-.gallery-image {
-    width: 100%;
-    height: 200px; /* hauteur fixe */
-    object-fit: cover; /* recadre l'image sans la déformer */
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    transition: transform 0.3s;
-}
-
-.gallery-image:hover {
-    transform: scale(1.03); /* petit effet au survol */
-}
-/* Lightbox */
-.lightbox {
-    display: none;
-    position: fixed;
-    top: 0; left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0,0,0,0.8);
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
-}
-
-.lightbox-content {
-    text-align: center;
-    color: white;
-}
-
-#lightbox-img {
-    max-width: 90%;
-    max-height: 80%;
-    border-radius: 8px;
-    box-shadow: 0 0 15px rgba(0,0,0,0.5);
-}
-
-#lightbox-caption {
-    margin-top: 15px;
-    font-size: 2em;
-    font-weight: 500;
-    color: #fff;
-    background: rgba(0, 0, 0, 0.6);
-    padding: 8px 16px;
-    border-radius: 6px;
-    display: inline-block;
-    max-width: 80%;
-    word-wrap: break-word;
-    position: relative;
-    left: 50px;
-}
-.hero {
-    position: relative;
-    width: 100%;
-    height: 400px; /* hauteur de la bannière */
-    overflow: hidden;
-}
-
-.hero-image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* recadre l’image sans déformation */
-    filter: brightness(90%); /* assombrit légèrement pour faire ressortir le texte */
-}
-
-.hero-text {
-    position: absolute;
-    top: 70%;
-    left: 75%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-    color: white;
-    text-shadow: 0 2px 5px rgba(0,0,0,0.7);
-}
-
-.hero-text h1 {
-    font-size: 2.5em;
-    margin-bottom: 10px;
-}
-
-.hero-text p {
-    font-size: 1.2em;
-}
-
-/* Section container */
-.contact {
-    max-width: 600px;
-    margin: 50px auto;
-    padding: 30px;
-    background: #fff;
-    border-radius: 12px;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-}
-
-/* Section title */
-.contact h2 {
-    text-align: center;
-    margin-bottom: 25px;
-    font-size: 1.8em;
-    color: #333;
-}
-
-/* Labels */
-.contact label {
-    display: block;
-    margin: 15px 0 5px;
-    font-weight: 600;
-    color: #555;
-}
-
-/* Inputs & textarea */
-.contact input[type="text"],
-.contact input[type="email"],
-.contact input[type="date"],
-.contact textarea {
-    width: 100%;
-    padding: 12px 15px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    font-size: 1em;
-    background: #f9f9f9;
-    transition: border-color 0.3s, box-shadow 0.3s;
-}
-
-/* Focus effect */
-.contact input:focus,
-.contact textarea:focus {
-    border-color: #ff5a5f;
-    box-shadow: 0 0 6px rgba(255,90,95,0.3);
-    outline: none;
-    background: #fff;
-}
-
-/* Textarea */
-.contact textarea {
-    resize: vertical;
-    min-height: 100px;
-}
-
-/* Submit button */
-.contact button {
-    display: block;
-    width: 100%;
-    padding: 14px;
-    margin-top: 20px;
-    background: #ff5a5f;
-    color: white;
-    border: none;
-    border-radius: 8px;
-    font-size: 1.1em;
-    font-weight: 600;
-    cursor: pointer;
-    transition: background 0.3s ease;
-}
-
-.contact button:hover {
-    background: #e04a4f;
 }
